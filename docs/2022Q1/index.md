@@ -4,5 +4,4 @@
 - [huma1000f](huma1000f/index.md) - Cultures and Values: Individualism, Family Values, and Social Responsibilities
 - [lang2030h](lang2030h/index.md) - Technical Communication I
 - [math1014](math1014/index.md) - Calculus II
-- [comp1029j](comp1029j/index.md) - Java Programming Bridging Course
-
+- [comp2011](comp2011/index.md) - C++ 

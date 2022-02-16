@@ -34,7 +34,7 @@
 #define _GLIBCXX_RELEASE 11
 
 // The datestamp of the C++ library in compressed ISO date format.
-#define __GLIBCXX__ 20210923
+#define __GLIBCXX__ 20210427
 
 // Macros for various attributes.
 //   _GLIBCXX_PURE
@@ -487,16 +487,6 @@ namespace std
 # define _GLIBCXX_EXTERN_TEMPLATE -1
 #endif
 
-
-#if __has_builtin(__builtin_is_constant_evaluated)
-# define __glibcxx_constexpr_assert(cond) \
-  if (__builtin_is_constant_evaluated() && !bool(cond))	\
-    __builtin_unreachable() /* precondition violation detected! */
-#else
-# define __glibcxx_constexpr_assert(unevaluated)
-#endif
-
-
 // Assert.
 #if defined(_GLIBCXX_ASSERTIONS) \
   || defined(_GLIBCXX_PARALLEL) || defined(_GLIBCXX_PARALLEL_ASSERTIONS)
@@ -516,19 +506,14 @@ namespace std
 }
 #define __glibcxx_assert_impl(_Condition)			       \
   if (__builtin_expect(!bool(_Condition), false))		       \
-  {								       \
-    __glibcxx_constexpr_assert(_Condition);			       \
     std::__replacement_assert(__FILE__, __LINE__, __PRETTY_FUNCTION__, \
-			      #_Condition);			       \
-  }
+			      #_Condition)
 #endif
 
 #if defined(_GLIBCXX_ASSERTIONS)
-# define __glibcxx_assert(cond) \
-  do { __glibcxx_assert_impl(cond); } while (false)
+# define __glibcxx_assert_2(_Condition) __glibcxx_assert_impl(_Condition)
 #else
-# define __glibcxx_assert(cond) \
-  do { __glibcxx_constexpr_assert(cond); } while (false)
+# define __glibcxx_assert_2(_Condition)
 #endif
 
 // Macros for race detectors.
@@ -750,6 +735,25 @@ namespace std
 #endif
 
 #undef _GLIBCXX_HAS_BUILTIN
+
+#if _GLIBCXX_HAVE_BUILTIN_IS_CONSTANT_EVALUATED && __cplusplus >= 201402L
+# define __glibcxx_assert_1(_Condition)		\
+    if (__builtin_is_constant_evaluated())	\
+     {						\
+       void __failed_assertion();	\
+       if (!bool(_Condition))			\
+	 __failed_assertion();	\
+     }						\
+    else
+#else
+# define __glibcxx_assert_1(_Condition)
+#endif
+
+# define __glibcxx_assert(_Condition)	  \
+  do {					  \
+    __glibcxx_assert_1(_Condition)	  \
+    { __glibcxx_assert_2(_Condition); }   \
+  } while (false)
 
 
 // PSTL configuration

@@ -44,7 +44,6 @@ namespace std
   /**
    * @defgroup exceptions Exceptions
    * @ingroup diagnostics
-   * @since C++98
    *
    * Classes and functions for reporting errors via exceptions.
    * @{

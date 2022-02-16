@@ -149,11 +149,11 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
     public:
       typedef _Iterator					iterator_type;
-      typedef typename __traits_type::pointer		pointer;
-#if __cplusplus <= 201703L
       typedef typename __traits_type::difference_type	difference_type;
+      typedef typename __traits_type::pointer		pointer;
       typedef typename __traits_type::reference		reference;
-#else
+
+#if __cplusplus > 201703L && __cpp_lib_concepts
       using iterator_concept
 	= conditional_t<random_access_iterator<_Iterator>,
 			random_access_iterator_tag,
@@ -161,9 +161,6 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       using iterator_category
 	= __detail::__clamp_iter_cat<typename __traits_type::iterator_category,
 				     random_access_iterator_tag>;
-      using value_type = iter_value_t<_Iterator>;
-      using difference_type = iter_difference_t<_Iterator>;
-      using reference = iter_reference_t<_Iterator>;
 #endif
 
       /**
@@ -1412,8 +1409,11 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       base() const
       { return _M_current; }
 #else
-      constexpr const iterator_type&
-      base() const & noexcept
+      constexpr iterator_type
+      base() const &
+#if __cpp_lib_concepts
+	requires copy_constructible<iterator_type>
+#endif
       { return _M_current; }
 
       constexpr iterator_type
@@ -2141,8 +2141,10 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	  return *this;
 	}
 
-      constexpr const _It&
-      base() const & noexcept
+      constexpr _It
+      base() const &
+      noexcept(is_nothrow_copy_constructible_v<_It>)
+      requires copy_constructible<_It>
       { return _M_current; }
 
       constexpr _It

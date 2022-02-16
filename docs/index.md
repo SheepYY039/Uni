@@ -1,4 +1,4 @@
-# Uni Homw 
+# Uni Home 
 
 ## Semester
 
