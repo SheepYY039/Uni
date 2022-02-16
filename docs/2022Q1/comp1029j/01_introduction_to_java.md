@@ -1,12 +1,14 @@
-# 01 Introduction to Java 
+# 01 Introduction to Java
 
 ## Focus when creating the language
+
 1. the language should be highly portable
    - You should be able to run the program on any platform and environment
-   - without having to modify the program 
+   - without having to modify the program
 2. use **OOP**
 
 ## Developing Java
+
 Java is an interpreted language
 
 Compiled Language::
@@ -16,7 +18,7 @@ Interpreted Language::
 :: Source code is translated using an interpreter, which translates the code into a computer-readable format, which can be run on any computer
 
 ## JDK
-> Java Development Kit 
 
-This course uses BlueJ (IDE) so not JDK is required. 
+> Java Development Kit
 
+This course uses BlueJ (IDE) so not JDK is required.
