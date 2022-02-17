@@ -1,0 +1,1 @@
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QLab: 6 lab assignments (30%)\nQuiz: open-book 10% total, iPRS, only top 60% counted, 20 question in total\nExam: Lab exam (closed book, 15%)\nExam: On-line exam (closed book, 20%)\nProject: Project demo (20%) documentation/report (5%)\\E$"}
