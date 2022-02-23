@@ -21,8 +21,8 @@ int main() {
     cout << pos1 << pos2 << endl;
     cout << pos3 << pos4 << endl;
 
-    cin >> choice;
     cout << "Enter a position number between 1 to 4 to slide:";
+    cin >> choice;
 
     // TASK: check the input
     // BUG: Need to check input type?
