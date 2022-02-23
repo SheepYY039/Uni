@@ -1,14 +1,18 @@
+---
+tags: comp2011
+aliases: COMP2011
+date created: Sunday, February 20th 2022, 2:22:07 pm
+date modified: Monday, February 21st 2022, 5:44:09 pm
+title: COMP 2011
+---
+
 # COMP 2011
 
 ## 2022-02-11
 
 - Lab 1 Released ( Feb 14 - 18 )
-
-`rand()`
-sudorandom = simulating randomness
-
-`srand( *int* )`/ `srand( time(0) )`
-actually "random"
+- `rand()`: sudorandom = simulating randomness
+- `srand( *int* )`/ `srand( time(0) )` : actually "random"
 
 ## 2022-02-16
 
@@ -16,7 +20,6 @@ actually "random"
 if (0<= x <=10 ) // Not allowed
 if ((0<=x) && (x <=10 )) //correct
 ```
-
 ```c++
 char c1 = 'a'; // Single charaters can only be in single quotes
 char c2 = "a"; // ERR: this is wrong

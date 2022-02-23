@@ -1,7 +1,16 @@
+---
+tags:
+  - '#semester'
+aliases:
+  - 2022Q1
+  - Year 1 Spring
+date updated: 2022-02-21 17:47
+---
+
 # 2022 Q1 (Year 1 Spring term)
 
-- [elec1100](elec1100/index.md) - Introduction to Electro-Robot Design
-- [huma1000f](huma1000f/index.md) - Cultures and Values: Individualism, Family Values, and Social Responsibilities
-- [lang2030h](lang2030h/index.md) - Technical Communication I
-- [math1014](math1014/index.md) - Calculus II
-- [comp2011](comp2011/index.md) - C++
+- [[docs/2022Q1/elec1100/index|ELEC1100]]  - Introduction to Electro-Robot Design
+- [[docs/2022Q1/huma1000f/index|HUMA1000F]] - Cultures and Values: Individualism, Family Values, and Social Responsibilities
+- [[docs/2022Q1/lang2030h/index|LANG2030H]] - Technical Communication I
+- [[docs/2022Q1/math1014/index|MATH1014]] - Calculus II
+- [[docs/2022Q1/comp2011/index|COMP2011]] - C++

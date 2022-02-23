@@ -1,0 +1,16 @@
+{
+  "legacyEditor": false,
+  "livePreview": true,
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "current",
+  "showUnsupportedFiles": true,
+  "attachmentFolderPath": "./",
+  "showLineNumber": true,
+  "foldIndent": true,
+  "foldHeading": true,
+  "showFrontmatter": true,
+  "strictLineBreaks": true,
+  "spellcheck": true,
+  "vimMode": true,
+  "promptDelete": false
+}
